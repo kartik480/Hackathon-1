@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn More - #PZN Clothes</title>
+    <link rel="stylesheet" href="css/styles.css?v=3.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .learn-more-page {
+            margin-top: 70px;
+            padding: 80px 0;
+        }
+        .info-section {
+            margin-bottom: 80px;
+        }
+        .info-section h2 {
+            font-size: 32px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border);
+        }
+        .info-section h3 {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin: 40px 0 20px;
+            text-transform: uppercase;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .info-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border: 1px solid var(--border);
+        }
+        .info-card h4 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .info-card p {
+            line-height: 1.8;
+            color: var(--text);
+            opacity: 0.8;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+        }
+        .stat-number {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 10px;
+            color: var(--black);
+        }
+        .stat-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text);
+            opacity: 0.7;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 40px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--black);
+            border: 2px solid var(--white);
+            box-shadow: 0 0 0 2px var(--black);
+        }
+        .timeline-year {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 968px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span>#PZN Clothes</span>
+            </a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Fashion</a></li>
+                <li><a href="deals.html" class="nav-link">Deals</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="icon-btn" id="searchBtn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </button>
+                <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                    <span class="badge" id="wishlistBadge">0</span>
+                </button>
+                <a href="cart.html" class="icon-btn cart-btn" id="cartBtn" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"/>
+                        <circle cx="20" cy="21" r="1"/>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                    </svg>
+                    <span class="badge" id="cartBadge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Learn More Page -->
+    <section class="learn-more-page">
+        <div class="container">
+            <div class="section-header">
+                <h1 style="font-size: 48px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">Learn More</h1>
+                <p style="font-size: 18px; opacity: 0.7;">Discover everything about #PZN Clothes</p>
+            </div>
+
+            <!-- Company Overview -->
+            <div class="info-section">
+                <h2>Company Overview</h2>
+                <p style="font-size: 16px; line-height: 1.8; margin-bottom: 30px; opacity: 0.8;">
+                    #PZN Clothes is a leading e-commerce platform dedicated to providing premium products and exceptional shopping experiences. Since our inception, we've been committed to curating the finest selection of products from trusted brands worldwide.
+                </p>
+                <p style="font-size: 16px; line-height: 1.8; margin-bottom: 30px; opacity: 0.8;">
+                    Our mission is to make quality accessible to everyone while maintaining the highest standards of customer service. We believe that shopping should be effortless, enjoyable, and rewarding.
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Products</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Brands</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Services -->
+            <div class="info-section">
+                <h2>Our Services</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Free Shipping</h4>
+                        <p>Enjoy free shipping on all orders over $50. We deliver to over 50 countries worldwide with fast and reliable shipping partners.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Easy Returns</h4>
+                        <p>Not satisfied? Return any item within 30 days for a full refund. Our hassle-free return process makes it easy.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Secure Payment</h4>
+                        <p>Your payment information is protected with industry-leading encryption. We accept all major credit cards and PayPal.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>24/7 Support</h4>
+                        <p>Our customer support team is available around the clock to assist you with any questions or concerns.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Quality Guarantee</h4>
+                        <p>Every product is carefully inspected before shipping. We guarantee the quality of all items in our catalog.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Exclusive Deals</h4>
+                        <p>Subscribe to our newsletter and get access to exclusive deals, early sales, and special promotions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Journey -->
+            <div class="info-section">
+                <h2>Our Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020</div>
+                        <p>#PZN Clothes was founded with a vision to revolutionize online shopping. We started with a small team and big dreams.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021</div>
+                        <p>Expanded our product catalog to over 200 items and reached our first 1,000 customers milestone.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022</div>
+                        <p>Launched international shipping and partnered with 20+ premium brands. Reached 5,000 customers.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023</div>
+                        <p>Introduced our mobile app and expanded to 50+ countries. Achieved 10,000+ satisfied customers.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <p>Launched our sustainability initiative and became carbon-neutral. Expanded product range to 500+ items.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <p>Continuing to innovate and improve. Our commitment to excellence remains stronger than ever.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us -->
+            <div class="info-section">
+                <h2>Why Choose #PZN Clothes</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Curated Selection</h4>
+                        <p>Every product in our catalog is handpicked by our team of experts. We only offer items that meet our strict quality standards.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Competitive Prices</h4>
+                        <p>We work directly with suppliers to bring you the best prices without compromising on quality.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Fast Delivery</h4>
+                        <p>Most orders are processed within 24 hours and delivered within 3-5 business days.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Customer First</h4>
+                        <p>Your satisfaction is our priority. We go above and beyond to ensure you have the best shopping experience.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Policies -->
+            <div class="info-section">
+                <h2>Our Policies</h2>
+                <h3>Shipping Policy</h3>
+                <p style="font-size: 16px; line-height: 1.8; margin-bottom: 30px; opacity: 0.8;">
+                    We offer free standard shipping on orders over $50. Express shipping options are available at checkout. Orders are typically processed within 1-2 business days and delivered within 3-7 business days depending on your location.
+                </p>
+
+                <h3>Return Policy</h3>
+                <p style="font-size: 16px; line-height: 1.8; margin-bottom: 30px; opacity: 0.8;">
+                    You can return any item within 30 days of purchase for a full refund. Items must be in original condition with tags attached. We provide a prepaid return label for your convenience.
+                </p>
+
+                <h3>Privacy Policy</h3>
+                <p style="font-size: 16px; line-height: 1.8; margin-bottom: 30px; opacity: 0.8;">
+                    We respect your privacy and are committed to protecting your personal information. We never share your data with third parties and use industry-standard encryption to secure your information.
+                </p>
+
+                <h3>Terms & Conditions</h3>
+                <p style="font-size: 16px; line-height: 1.8; margin-bottom: 30px; opacity: 0.8;">
+                    By using our website, you agree to our terms and conditions. We reserve the right to update these terms at any time. Please review them periodically for any changes.
+                </p>
+            </div>
+
+            <!-- Contact CTA -->
+            <div class="info-section" style="text-align: center; background: var(--bg-light); padding: 60px; border: 1px solid var(--border);">
+                <h2 style="border: none; padding: 0; margin-bottom: 20px;">Have Questions?</h2>
+                <p style="font-size: 18px; margin-bottom: 30px; opacity: 0.8;">We're here to help! Get in touch with our team.</p>
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>#PZN Clothes</h4>
+                    <p>Your trusted destination for premium products and exceptional service.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="deals.html">Deals</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">Facebook</a>
+                        <a href="#" aria-label="Twitter">Twitter</a>
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 #PZN Clothes. All rights reserved.</p>
+            </div>
+            <div class="footer-navbar">
+                <ul class="footer-nav-links">
+                    <li><a href="index.html" class="footer-nav-link">Home</a></li>
+                    <li><a href="products.html" class="footer-nav-link">Products</a></li>
+                    <li><a href="deals.html" class="footer-nav-link">Deals</a></li>
+                    <li><a href="about.html" class="footer-nav-link">About</a></li>
+                    <li><a href="contact.html" class="footer-nav-link">Contact</a></li>
+                    <li><a href="#" class="footer-nav-link">Shipping</a></li>
+                    <li><a href="#" class="footer-nav-link">Returns</a></li>
+                    <li><a href="#" class="footer-nav-link">FAQ</a></li>
+                    <li><a href="#" class="footer-nav-link">Privacy Policy</a></li>
+                    <li><a href="#" class="footer-nav-link">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="js/script.js?v=3.0"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartUI();
+            updateWishlistUI();
+        });
+    </script>
+</body>
+</html>
+
